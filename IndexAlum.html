@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Actividades | 12vo BTPI - IGP Roberto Micheletti</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --azul-deep: #0f172a;
+            --azul-tech: #1e293b;
+            --rojo-premium: #e11d48;
+            --verde-neon: #10b981;
+            --text-light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: #020617;
+            font-family: 'Inter', sans-serif;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        /* --- Navbar Estilo "Nosotros" --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(225, 29, 72, 0.3);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand span { color: var(--rojo-premium); }
+
+        /* --- Hero / Header --- */
+        .hero-section {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, rgba(225, 29, 72, 0.1) 0%, rgba(2, 6, 23, 1) 100%);
+            text-align: center;
+        }
+
+        /* --- Tarjetas de Cristal --- */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--rojo-premium);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.1);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--rojo-premium);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        /* --- Títulos --- */
+        .section-title {
+            color: white;
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--rojo-premium);
+            margin: 10px auto;
+        }
+
+        /* --- Estilo de Proyectos --- */
+        .project-img-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
+            color: white;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #010409;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 80px;
+        }
+
+        .footer-link { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .footer-link:hover { color: var(--rojo-premium); }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">IGP <span>MICHELETTI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small">
+                    <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="Contactocurso.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="display-3 fw-800 text-white">12VO GRADO <span style="color: var(--rojo-premium);">BTPI</span></h1>
+            <p class="lead text-secondary italic">BTP en Informática - Instituto Roberto Micheletti Bain</p>
+            <p class="mx-auto w-75">Transformando ideas en soluciones digitales con ética y profesionalismo.</p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Conocimientos del Curso</h2>
+                <p class="text-muted">Desarrollamos habilidades técnicas para el mundo laboral actual.</p>
+            </div>
+            
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                        <h4 class="text-white">Bases de Datos</h4>
+                        <p class="small text-secondary">Estructuramos y gestionamos información mediante lenguajes como HTML, CSS y JavaScript.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card" style="border-top: 3px solid var(--verde-neon);">
+                        <div class="icon-box" style="background: var(--verde-neon);"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h4 class="text-white">Mantenimiento</h4>
+                        <p class="small text-secondary">Especialistas en el cuidado de los equipos, desde hardware crítico hasta instalación de software.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card" style="border-top: 3px solid var(--rojo-premium);">
+                        <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                        <h4 class="text-white">Diseño Web</h4>
+                        <p class="small text-secondary">Construimos experiencias digitales modernas utilizando HTML5, CSS y la lógica de JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Proyectos Destacados</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="project-img-container shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Feria Tecnológica Hardware">
+                        <div class="project-overlay">
+                            <h5 class="fw-bold mb-2">Feria Tecnológica</h5>
+                            <p class="small opacity-75">Fue desarrollada por los alumnos de 12vo (anteriormente 11vo) en el año 2025, hecha para poder mostrar las habilidades de la carrera en hardware y sistemas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="project-img-container shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Inteligencia Artificial">
+                        <div class="project-overlay" style="background: linear-gradient(transparent, rgba(225, 29, 72, 0.9));">
+                            <h5 class="fw-bold mb-2">Feria de la IA</h5>
+                            <p class="small opacity-75">Desarrollada en el presente año 2026, creada para explorar las diferentes IA's usadas para generar imágenes, audio y potenciar el aprendizaje.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <h5 class="text-white fw-bold mb-4" style="border-left: 4px solid var(--rojo-premium); padding-left: 15px;">NUESTRA VISIÓN</h5>
+                    <p class="small text-secondary">Formar líderes en el campo de la tecnología que impulsen el crecimiento digital del país con valores sólidos y excelencia técnica desde el Instituto Roberto Micheletti.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-white fw-bold mb-4">ENLACES</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="footer-link">Facebook IRMB</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Instagram Curso</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Tiktok Curso</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5 class="text-white fw-bold mb-4">LOCALIZACIÓN</h5>
+                    <p class="small text-secondary">Agua Blanca Sur, El Progreso, Yoro<br>Honduras, C.A.</p>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-secondary">
+                <p class="small text-muted">&copy; 2026 | 12vo Grado - BTP en Informática | IGP Roberto Micheletti Bain</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

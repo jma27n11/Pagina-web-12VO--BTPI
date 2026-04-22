@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | 12vo BTPI - Servicios Técnicos</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --bg-body: #020617;
+            --azul-card: #0f172a;
+            --rojo-primary: #e11d48;
+            --rojo-hover: #be123c;
+            --verde-glow: #10b981;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --border-tech: rgba(225, 29, 72, 0.2);
+        }
+
+        /* --- Estilos Generales --- */
+        body {
+            background-color: var(--bg-body);
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(to right, rgba(225, 29, 72, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(225, 29, 72, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        h1, h2, h3, .navbar-brand { font-family: 'Montserrat', sans-serif; }
+
+        /* --- Navbar --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-tech);
+            padding: 1rem 0;
+        }
+        .navbar-brand span { color: var(--rojo-primary); }
+
+        /* --- Hero Section --- */
+        .contact-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .contact-hero h1 { font-weight: 900; color: white; letter-spacing: -2px; }
+
+        /* --- Formulario de Cristal --- */
+        .form-container {
+            background: var(--azul-card);
+            border: 1px solid var(--border-tech);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, transparent, var(--rojo-primary), transparent);
+        }
+
+        .input-group-text {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-tech);
+            color: var(--rojo-primary);
+        }
+
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-tech);
+            color: white;
+            padding: 12px 15px;
+            transition: 0.3s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(225, 29, 72, 0.05);
+            border-color: var(--rojo-primary);
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.2);
+            color: white;
+        }
+
+        label { color: #f8fafc; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; }
+
+        /* --- Selector de Servicio --- */
+        .service-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 15px;
+            border: 1px solid var(--border-tech);
+            background: var(--glass-white);
+            color: #94a3b8;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-btn.active {
+            background: var(--rojo-primary);
+            color: white;
+            border-color: var(--rojo-primary);
+            box-shadow: 0 10px 20px rgba(225, 29, 72, 0.3);
+        }
+
+        .service-btn i { display: block; font-size: 1.5rem; margin-bottom: 8px; }
+
+        /* --- Secciones Dinámicas --- */
+        .dynamic-section { display: none; margin-top: 20px; }
+        .dynamic-section.active { display: block; animation: fadeInUp 0.5s; }
+
+        /* --- Botón Enviar --- */
+        .btn-submit {
+            background: linear-gradient(45deg, var(--rojo-primary), #be123c);
+            color: white;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            border-radius: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            transition: 0.4s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(225, 29, 72, 0.4);
+            color: white;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #010409;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-tech);
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px dashed var(--border-tech);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">IGP <span>MICHELETTI</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small">
+					<li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="IndexAlum.html">Inicio</a></li>
+                 <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="contact-hero">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">SISTEMA DE <span style="color: var(--rojo-primary);">SOLICITUDES</span></h1>
+            <p class="text-secondary mx-auto w-75">Completa el formulario técnico. Al finalizar, serás redirigido al grupo oficial de soporte de 12vo BTPI para confirmar tu solicitud.</p>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <div class="form-container animate__animated animate__fadeInUp">
+                    <form id="contactForm">
+                        
+                        <h5 class="text-white mb-4 fw-bold"><i class="fa-solid fa-user-tag text-danger me-2"></i> INFORMACIÓN BÁSICA</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label>Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ej: Juan Pérez" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Número de WhatsApp</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="9999-9999" required>
+                            </div>
+                            <div class="col-12">
+                                <label>Ubicación (Colonia / Barrio)</label>
+                                <input type="text" class="form-control" id="ubicacion" placeholder="Agua Blanca Sur, El Progreso..." required>
+                            </div>
+                        </div>
+
+                        <hr class="my-5 border-secondary border-opacity-25">
+
+                        <h5 class="text-white mb-4 fw-bold"><i class="fa-solid fa-gears text-danger me-2"></i> SELECCIONA EL SERVICIO</h5>
+                        <div class="service-selector">
+                            <div class="service-btn active" onclick="showService('mantenimiento', this)">
+                                <i class="fa-solid fa-screwdriver-wrench"></i> Mantenimiento
+                            </div>
+                            <div class="service-btn" onclick="showService('sql', this)">
+                                <i class="fa-solid fa-database"></i> Base de Datos SQL
+                            </div>
+                            <div class="service-btn" onclick="showService('sistema', this)">
+                                <i class="fa-solid fa-laptop-code"></i> Sistema de Info.
+                            </div>
+                            <div class="service-btn" onclick="showService('diseno', this)">
+                                <i class="fa-solid fa-palette"></i> Diseño Gráfico
+                            </div>
+                        </div>
+
+                        <div id="mantenimiento" class="dynamic-section active">
+                            <div class="info-card mb-4">
+                                <label>Tipo de Equipo</label>
+                                <select class="form-select mb-3">
+                                    <option value="laptop">Laptop / Portátil</option>
+                                    <option value="desktop">PC de Escritorio</option>
+                                </select>
+                                <label>Descripción del Problema</label>
+                                <textarea class="form-control" rows="3" placeholder="Ej: La PC está lenta, se apaga sola o necesita limpieza física..."></textarea>
+                            </div>
+                        </div>
+
+                        <div id="sql" class="dynamic-section">
+                            <div class="info-card mb-4">
+                                <label>Propósito de la Base de Datos</label>
+                                <input type="text" class="form-control mb-3" placeholder="Ej: Inventario para pulpería, control de alumnos...">
+                                <label>Cantidad estimada de datos/tablas</label>
+                                <select class="form-select">
+                                    <option>Básica (1-5 tablas)</option>
+                                    <option>Intermedia (5-15 tablas)</option>
+                                    <option>Compleja (15+ tablas)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="sistema" class="dynamic-section">
+                            <div class="info-card mb-4">
+                                <label>Nombre del Negocio / Proyecto</label>
+                                <input type="text" class="form-control mb-3" placeholder="Nombre de la empresa">
+                                <label>¿Qué proceso desea automatizar?</label>
+                                <textarea class="form-control" rows="3" placeholder="Ej: Ventas diarias, Registro de clientes, Reportes mensuales..."></textarea>
+                            </div>
+                        </div>
+
+                        <div id="diseno" class="dynamic-section">
+                            <div class="info-card mb-4">
+                                <label>Tipo de Diseño</label>
+                                <select class="form-select mb-3">
+                                    <option>Logo Profesional</option>
+                                    <option>Publicidad para Redes Sociales</option>
+                                    <option>Flyer / Afiche</option>
+                                    <option>Identidad Corporativa Completa</option>
+                                </select>
+                                <label>Colores o estilo preferido</label>
+                                <input type="text" class="form-control" placeholder="Ej: Azul y blanco, estilo moderno, minimalista...">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-submit" onclick="submitToWhatsApp()">
+                            Enviar Solicitud <i class="fa-brands fa-whatsapp ms-2"></i>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <h5 class="text-white fw-bold mb-3">SOPORTE TÉCNICO BTPI</h5>
+                    <p class="small text-secondary">Al enviar este formulario, confirmas que la información es verídica. Los alumnos de 12vo grado se pondrán en contacto contigo a la brevedad posible a través del grupo de WhatsApp.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small text-muted mb-0">&copy; 2026 | Instituto Roberto Micheletti Bain</p>
+                    <p class="small text-muted">Agua Blanca Sur, El Progreso, Yoro.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Función para cambiar de servicio
+        function showService(serviceId, btn) {
+            // Desactivar todos los botones
+            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+            // Activar botón actual
+            btn.classList.add('active');
+            
+            // Ocultar todas las secciones
+            document.querySelectorAll('.dynamic-section').forEach(s => s.classList.remove('active'));
+            // Mostrar la seleccionada
+            document.getElementById(serviceId).classList.add('active');
+        }
+
+        // Función para validar y redireccionar
+        function submitToWhatsApp() {
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const ubicacion = document.getElementById('ubicacion').value;
+
+            // Validación simple
+            if(nombre === "" || telefono === "" || ubicacion === "") {
+                alert("Por favor, completa los campos básicos de identificación.");
+                return;
+            }
+
+            // Si los datos básicos están llenos, redirigir
+            const whatsappLink = "https://chat.whatsapp.com/EclyLeGDB5e0GuKPodNaGs";
+            
+            alert("¡Información registrada! Ahora serás unido al grupo de la promoción para coordinar tu servicio.");
+            window.location.href = whatsappLink;
+        }
+    </script>
+</body>
+</html>

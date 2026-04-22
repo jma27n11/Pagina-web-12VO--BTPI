@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sobre Nosotros | 12vo BTPI 2026 - IGP Roberto Micheletti</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-red: #b91c1c;
+            --dark-bg: #030712;
+            --card-bg: #111827;
+            --accent-blue: #3b82f6;
+            --text-gray: #9ca3af;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Inter', sans-serif;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: #fff; }
+
+        /* --- Estética de Navegación --- */
+        .navbar {
+            background: rgba(3, 7, 18, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        /* --- Hero Section Detallado --- */
+        .hero-about {
+            padding: 120px 0 80px;
+            background: linear-gradient(180deg, rgba(185, 28, 28, 0.15) 0%, rgba(3, 7, 18, 1) 100%);
+            text-align: center;
+        }
+
+        /* --- Secciones Informativas --- */
+        .section-title {
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--primary-red);
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .info-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        /* --- Listas Técnicas --- */
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .tech-list li i {
+            color: var(--primary-red);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        /* --- Ventajas Carreras --- */
+        .advantage-card {
+            background: linear-gradient(145deg, #1f2937, #111827);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        /* --- Perfil Profesional --- */
+        .profile-stat {
+            background: rgba(185, 28, 28, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(185, 28, 28, 0.2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 60px 0;
+            margin-top: 80px;
+            border-top: 1px solid #1f2937;
+        }
+
+        .highlight-red { color: var(--primary-red); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">IGP <span class="highlight-red">MICHELETTI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                 <li class="nav-item"><a class="nav-link px-3" href="IndexAlum.html">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+				   <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="Contactocurso.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-about">
+        <div class="container">
+            <h1 class="display-3 fw-900 mb-3">CONOCE NUESTRO <span class="highlight-red">LEGADO</span></h1>
+            <p class="lead text-gray mx-auto" style="max-width: 800px;">
+                Explora la trayectoria, los valores y la formación técnica de 12vo del Bachillerato Técnico Profesional en Informática del Instituto Roberto Micheletti Bain.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Nuestra Raíz Académica</h2>
+                    <p>El <strong>Instituto Gubernamental Polivalente Roberto Micheletti Bain</strong>, ubicado en Agua Blanca Sur, El Progreso, Yoro, ha sido por décadas un referente en la formación técnica del departamento. Como estudiantes de 12vo grado, cargamos con la responsabilidad de representar la excelencia académica de una institución que cree en el trabajo duro y la superación constante.</p>
+                    <p>Nuestro grado no es solo un curso común; somos un grupo resiliente que ha evolucionado desde el aprendizaje de lógica básica hasta el desarrollo de soluciones complejas con Inteligencia Artificial. Nuestra identidad se forja en el laboratorio, pero se fortalece en la comunidad.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-box border-start border-danger border-4">
+                        <h4 class="mb-3 text-white">Misión de Promoción</h4>
+                        <p class="small text-gray">Consolidarnos como técnicos líderes capaces de transformar el entorno digital de nuestra región, aplicando conocimientos en redes, programación y mantenimiento de sistemas, siempre bajo una ética profesional inquebrantable y un espíritu de colaboración familiar.</p>
+                        <hr class="border-secondary">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="highlight-red mb-0">20+</h3>
+                                <span class="small">Especialistas en Formación</span>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="highlight-red mb-0">3 Años</h3>
+                                <span class="small">De Rigor Técnico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark">
+        <div class="container text-center mb-5">
+            <h2 class="section-title">La Carrera de BTPI</h2>
+            <p class="text-gray mx-auto" style="max-width: 900px;">El Bachillerato Técnico Profesional en Informática es una de las carreras más exigentes y gratificantes del sistema educativo nacional. No se trata de "usar" computadoras, sino de entender cómo funcionan y cómo poder utilizarlas correctamente</p>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h4 class="text-white mb-4"><i class="fa-solid fa-layer-group text-danger me-3"></i>Áreas de Dominio Técnico</h4>
+                        <ul class="tech-list">
+                            <li><i class="fa-solid fa-code"></i> <div><strong>Programación:</strong> Lógica de algoritmos y desarrollo de aplicaciones web y de escritorio utilizando lenguajes modernos.</div></li>
+                            <li><i class="fa-solid fa-database"></i> <div><strong>Gestión de Datos:</strong> Diseño, implementación y administración de bases de datos relacionales con SQL.</div></li>
+                            <li><i class="fa-solid fa-network-wired"></i> <div><strong>Redes de Datos:</strong> Configuración de topologías, direccionamiento IP y mantenimiento de infraestructuras de red locales.</div></li>
+                            <li><i class="fa-solid fa-screwdriver-wrench"></i> <div><strong>Mantenimiento:</strong> Diagnóstico avanzado de hardware y optimización de sistemas operativos.</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h4 class="text-white mb-4"><i class="fa-solid fa-rocket text-danger me-3"></i>Hitos de 12VO GRADO</h4>
+                        <p>A lo largo de nuestra formación en el Micheletti, hemos superado desafíos que ponen a prueba nuestra capacidad técnica:</p>
+                        <div class="advantage-card mb-3">
+                            <h6 class="text-white mb-1">Feria Tecnológica 2025 (11vo)</h6>
+                            <p class="small text-gray mb-0">Presentación de proyectos de hardware y electrónica básica, demostrando dominio de componentes internos.</p>
+                        </div>
+                        <div class="advantage-card mb-3">
+                            <h6 class="text-white mb-1">Feria de la Inteligencia Artificial 2026 (12vo)</h6>
+                            <p class="small text-gray mb-0">Nuestra culminación técnica: Desarrollamos modelos predictivos y chatbots aplicados a problemas de la comunidad.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h6 class="text-white mb-1">Práctica Profesional y TES</h6>
+                            <p class="small text-gray mb-0">Impacto directo en la comunidad de Agua Blanca Sur mediante soporte técnico y alfabetización digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="section-title">¿Por qué Informática?</h2>
+                    <p>Elegir informática en el Micheletti es una decisión estratégica. Vivimos en un mundo donde el código y el manejo de software es la ley. Quien domina la información, domina el futuro. Estudiar esta carrera nos ofrece ventajas que ninguna otra área técnica posee en la actualidad.</p>
+                    <div class="profile-stat mt-4">
+                        <h5 class="text-white">Perfil de Alumno</h5>
+                        <p class="small text-gray">Un Alumno de BTPI en el IGP Roberto Micheletti Bain posee una mente analítica, capacidad de autoaprendizaje (autodidacta) y la habilidad de trabajar bajo cierta presión en entornos tecnológicos cambiantes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="info-box p-3">
+                                <h5 class="text-white"><i class="fa-solid fa-briefcase text-primary me-2"></i>Alta Empleabilidad</h5>
+                                <p class="small text-gray">Es la carrera con menor tasa de desempleo a nivel mundial. Todas las empresas, desde bancos hasta pulperías, necesitan un técnico en sistemas.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="info-box p-3">
+                                <h5 class="text-white"><i class="fa-solid fa-globe text-primary me-2"></i>Teletrabajo</h5>
+                                <p class="small text-gray">La informática permite trabajar desde casa para empresas en cualquier parte del mundo, rompiendo las barreras geográficas.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="info-box p-3">
+                                <h5 class="text-white"><i class="fa-solid fa-money-bill-trend-up text-primary me-2"></i>Salarios Competitivos</h5>
+                                <p class="small text-gray">Los perfiles tecnológicos son los mejores remunerados en el mercado laboral hondureño e internacional.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="info-box p-3">
+                                <h5 class="text-white"><i class="fa-solid fa-lightbulb text-primary me-2"></i>Emprendimiento</h5>
+                                <p class="small text-gray">Con una computadora y conocimiento, un informático puede crear su propia empresa de software o servicios técnicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <div class="info-box" style="background: rgba(255, 255, 255, 0.02);">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2 class="text-white fw-bold mb-4">El Factor HumanoDetrás del Código</h2>
+                        <p>A menudo se tiene la idea de que el informático es una persona aislada. En el 12vo del Micheletti, cada uno va concentrado en sus propias tareas. pero, si un compañero no logra normalizar una base de datos o su código en C# colapsa, podremos ayudarlo. </p>
+                        <p>Nuestra convivencia se define por:</p>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <h6 class="highlight-red"><i class="fa-solid fa-hands-holding-child me-2"></i>Empatía</h6>
+                                <p class="small text-gray">Entendemos que cada uno tiene sus responsabilidades</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h6 class="highlight-red"><i class="fa-solid fa-face-smile me-2"></i>Humor</h6>
+                                <p class="small text-gray">Nuestras bromas internas sobre "errores" alivian el estrés de los exámenes.</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h6 class="highlight-red"><i class="fa-solid fa-link me-2"></i>Unidad</h6>
+                                <p class="small text-gray">Priorizamos la estética de cada trabajo, con el funcionamiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" class="img-fluid rounded-circle p-2 border border-danger border-2 shadow-lg" alt="Equipo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-4">IGP <span class="highlight-red">ROBERTO MICHELETTI</span></h5>
+                    <p class="small text-gray">Formación técnica de calidad en Agua Blanca Sur. Forjando el futuro de Honduras a través de la educación polivalente.</p>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="text-white mb-3">Carrera BTPI</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-decoration-none text-gray">Requisitos</a></li>
+                        <li><a href="#" class="text-decoration-none text-gray">Laboratorios</a></li>
+                        <li><a href="#" class="text-decoration-none text-gray">Proyectos IA</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="text-white mb-3">Ubicación</h6>
+                    <p class="small text-gray">Agua Blanca Sur, El Progreso, Yoro.<br>Honduras, C.A.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white mb-3">Siguenos</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center small text-gray">
+                &copy; 2026 | Desarrollado por la Promo de 12vo BTPI | "Pasión por la Innovación"
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

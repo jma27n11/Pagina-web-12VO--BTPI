@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BTP Informática | Centro de Innovación IGP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        /* SISTEMA DE DISEÑO: CYBER-ADMIN 2026
+           Paleta: Deep Space (#020617), Neon Blue (#3b82f6), Crimson Code (#e11d48), Tech Gold (#fbbf24)
+        */
+        :root {
+            --bg-ultra: #020617;
+            --bg-panel: rgba(15, 23, 42, 0.8);
+            --accent-primary: #3b82f6;
+            --accent-secondary: #e11d48;
+            --accent-gold: #fbbf24;
+            --text-glow: rgba(59, 130, 246, 0.5);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --font-main: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-tech: 'Syncopate', sans-serif;
+        }
+
+        /* --- Estilos Globales --- */
+        body {
+            background-color: var(--bg-ultra);
+            color: #e2e8f0;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-ultra); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(var(--accent-secondary), var(--accent-primary)); 
+            border-radius: 10px;
+        }
+
+        /* --- Animaciones de Fondo --- */
+        .tech-dots {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* --- Navegación High-Tech --- */
+        .navbar {
+            background: rgba(2, 6, 23, 0.95) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--accent-primary);
+            padding: 15px 0;
+        }
+
+        .nav-brand-tech {
+            font-family: var(--font-tech);
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: white !important;
+            font-size: 1.2rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin: 0 15px;
+            color: #94a3b8 !important;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary) !important;
+            text-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* --- Hero Carrera --- */
+        .hero-career {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-career::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 200px;
+            background: linear-gradient(to top, var(--bg-ultra), transparent);
+        }
+
+        .glitch-title {
+            font-family: var(--font-tech);
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 4px 4px var(--accent-secondary);
+        }
+
+        .status-terminal {
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 3px solid var(--accent-gold);
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+        }
+
+        /* --- Sección Administradores --- */
+        .prof-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 0;
+            padding: 30px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .prof-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .prof-img-container {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            border: 2px solid var(--accent-primary);
+            padding: 5px;
+            clip-path: polygon(0% 15%, 15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%);
+        }
+
+        .prof-name {
+            font-family: var(--font-tech);
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .prof-role {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* --- Infraestructura (Labs) --- */
+        .lab-box {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.8));
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .lab-counter {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: 10px; right: 20px;
+        }
+
+        /* --- Brigada Técnica (Impacto) --- */
+        .service-item {
+            padding: 25px;
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .service-item:hover {
+            background: rgba(225, 29, 72, 0.05);
+            padding-left: 35px;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        /* --- Taller de Hogar --- */
+        .home-workshop {
+            background: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070') center/cover;
+            position: relative;
+            padding: 100px 0;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .home-workshop::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.9);
+        }
+
+        /* --- Línea de Tiempo de Logros --- */
+        .log-entry {
+            border-left: 2px solid var(--accent-secondary);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .log-entry::before {
+            content: '';
+            position: absolute;
+            left: -9px; top: 0;
+            width: 16px; height: 16px;
+            background: var(--accent-secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-secondary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 60px 0;
+            border-top: 2px solid var(--accent-secondary);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Estilos de Secciones --- */
+        .section-title-tech {
+            font-family: var(--font-tech);
+            font-weight: 800;
+            color: white;
+            display: inline-block;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title-tech span { color: var(--accent-primary); }
+
+        /* Media Queries */
+        @media (max-width: 991px) {
+            .glitch-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tech-dots" id="particles"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand nav-brand-tech" href="#">
+                <i class="fas fa-terminal me-2"></i>BTP.INF<span style="color:var(--accent-secondary)">_</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCareer">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navCareer">
+                   <li class="nav-item"><a class="nav-link px-3" href="IndexAlum.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+				   <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="Contactocurso.html">Contacto</a></li>
+                    
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-career">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 animate__animated animate__fadeIn">
+                    <div class="mb-3 text-primary mono fw-bold"> INICIALIZANDO CARRERA...</div>
+                    <h1 class="glitch-title">BACHILLERATO TÉCNICO PROFESIONAL EN <span style="color: var(--accent-primary)">INFORMÁTICA</span></h1>
+                    <p class="lead text-secondary mb-4">
+                        Centro de alto rendimiento tecnológico en el <strong>IGP Roberto Micheletti Bain</strong>. 
+                        Formamos la próxima generación de especialistas en sistemas, hardware y soporte técnico integral de Agua Blanca Sur.
+                    </p>
+                    <div class="status-terminal">
+                        <i class="fas fa-microchip me-2"></i> Estado del Sistema: Activo y Operativo para el periodo 2026.<br>
+                        <i class="fas fa-map-marker-alt me-2"></i> Hub Principal: Laboratorios 1 y 2.
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070" class="img-fluid rounded-0 border border-primary shadow-lg" alt="Hardware">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="administracion" class="py-5 mt-5">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title-tech">LIDERAZGO <span>ACADÉMICO</span></h2>
+                <p class="text-secondary mb-5">Nuestra carrera es gestionada por profesionales comprometidos con la excelencia y la ética tecnológica.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5 reveal">
+                    <div class="prof-card">
+                        <div class="prof-img-container">
+                            <img src="https://ui-avatars.com/api/?name=Stanly+Rodriguez&background=3b82f6&color=fff&size=128" class="img-fluid" alt="Stanly Rodriguez">
+                        </div>
+                        <h3 class="prof-name">Prof. Stanly Rodriguez</h3>
+                        <div class="prof-role">Coordinador de Carrera / Especialista en Sistemas</div>
+                        <p class="small text-secondary mt-3">Líder técnico encargado de la visión estratégica de la carrera y el desarrollo de competencias avanzadas en programación y redes.</p>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary rounded-0">HARDWARE</span>
+                            <span class="badge bg-primary rounded-0">NETWORKING</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 reveal" style="transition-delay: 0.2s;">
+                    <div class="prof-card">
+                        <div class="prof-img-container" style="border-color: var(--accent-secondary);">
+                            <img src="https://ui-avatars.com/api/?name=Karla+Andrade&background=e11d48&color=fff&size=128" class="img-fluid" alt="Karla Andrade">
+                        </div>
+                        <h3 class="prof-name">Profa. Karla Andrade</h3>
+                        <div class="prof-role">Administradora Académica / Gestión de Proyectos</div>
+                        <p class="small text-secondary mt-3">Responsable de la supervisión administrativa y del aseguramiento de los estándares educativos de cada estudiante en formación.</p>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-danger rounded-0">ADMIN</span>
+                            <span class="badge bg-danger rounded-0">GESTIÓN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="laboratorios" class="py-5 bg-black bg-opacity-30">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 reveal">
+                    <h2 class="section-title-tech">NUESTROS <span>LABORATORIOS</span></h2>
+                    <p class="text-secondary">Contamos con infraestrucutra física dedicada exclusivamente a la experimentación técnica.</p>
+                    
+                    <div class="lab-box mb-4 position-relative">
+                        <div class="lab-counter">01</div>
+                        <h4 class="text-white"><i class="fas fa-desktop me-3 text-primary"></i> Laboratorio de Software</h4>
+                        <p class="small text-dim">Equipado para el desarrollo de aplicaciones, diseño gráfico y simulación de redes lógicas.</p>
+                    </div>
+
+                    <div class="lab-box position-relative">
+                        <div class="lab-counter">02</div>
+                        <h4 class="text-white"><i class="fas fa-tools me-3 text-primary"></i> Laboratorio de Hardware</h4>
+                        <p class="small text-dim">Zona de cirugía tecnológica donde se realiza el diagnóstico y reparación de componentes físicos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal" style="transition-delay: 0.3s;">
+                    <div class="p-2 border border-secondary">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070" class="img-fluid" alt="Labs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="taller" class="home-workshop my-5">
+        <div class="container position-relative">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <h2 class="text-white fw-bold mb-4">TALLER DE HOGAR</h2>
+                    <p class="lead text-secondary">
+                        Incluso en áreas de formación general como el Taller de Hogar, los alumnos de Informática aplican principios de organización, seguridad ocupacional y mantenimiento de infraestructuras básicas, demostrando que la tecnología es transversal a toda disciplina humana.
+                    </p>
+                    <div class="mt-4">
+                        <i class="fas fa-house-chimney-user fa-3x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="reveal mb-5">
+                <h2 class="section-title-tech">BRIGADA <span>TÉCNICA</span></h2>
+                <p class="text-secondary">La carrera de Informática es el motor que mantiene operativas las funciones del Instituto.</p>
+            </div>
+            
+            <div class="row g-0">
+                <div class="col-lg-4 reveal">
+                    <div class="service-item">
+                        <div class="icon-circle"><i class="fas fa-volume-high"></i></div>
+                        <div>
+                            <h5 class="text-white">Sonorización de Eventos</h5>
+                            <p class="small text-secondary mb-0">Gestión completa del audio en actos cívicos, conferencias y eventos culturales del IGP.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal" style="transition-delay: 0.1s;">
+                    <div class="service-item">
+                        <div class="icon-circle" style="border-color: var(--accent-secondary); color: var(--accent-secondary);"><i class="fas fa-print"></i></div>
+                        <div>
+                            <h5 class="text-white">Soporte a Secretaría</h5>
+                            <p class="small text-secondary mb-0">Mantenimiento preventivo y correctivo de impresoras y periféricos administrativos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal" style="transition-delay: 0.2s;">
+                    <div class="service-item">
+                        <div class="icon-circle" style="border-color: var(--accent-gold); color: var(--accent-gold);"><i class="fas fa-pills"></i></div>
+                        <div>
+                            <h5 class="text-white">Cirugía de Equipos</h5>
+                            <p class="small text-secondary mb-0">Reparación total de las computadoras del instituto (Bajo supervisión docente).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="logros" class="py-5 bg-black bg-opacity-20">
+        <div class="container">
+            <div class="reveal mb-5">
+                <h2 class="section-title-tech">HISTORIAL DE <span>OPERACIONES</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 reveal">
+                    <div class="log-entry">
+                        <div class="mono text-primary small">REG_2024_001</div>
+                        <h5 class="text-white">Restauración de Laboratorio 1</h5>
+                        <p class="small text-secondary">Actualización masiva de hardware y limpieza de sistemas operativos para 40 terminales de trabajo.</p>
+                    </div>
+                    <div class="log-entry">
+                        <div class="mono text-primary small">REG_2025_014</div>
+                        <h5 class="text-white">Despliegue de Red Local</h5>
+                        <p class="small text-secondary">Interconexión de oficinas administrativas para optimizar el flujo de datos internos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal" style="transition-delay: 0.3s;">
+                    <div class="log-entry">
+                        <div class="mono text-primary small">REG_2026_CURR</div>
+                        <h5 class="text-white">Protocolo de Sonido Externo</h5>
+                        <p class="small text-secondary">Soporte audiovisual exitoso en el desfile de las Fiestas Patrias regionales.</p>
+                    </div>
+                    <div class="log-entry">
+                        <div class="mono text-primary small">REG_DEV_MOD</div>
+                        <h5 class="text-white">Mantenimiento Periférico</h5>
+                        <p class="small text-secondary">Reparación de 12 impresoras láser críticas para el departamento de evaluación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h4 class="nav-brand-tech">IGP MICHELETTI</h4>
+                    <p class="small text-secondary">Bachillerato en Informática | Agua Blanca Sur, Honduras</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="mono small text-primary">
+                        	DISEÑADO POR JESUS MARTINEZ AMAYA<br>
+                        
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center">
+                <p class="small text-dim mb-0">&copy; 2026 Registro de Carrera de Informática. La tecnología es nuestro lenguaje.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animación de scroll para revelar elementos
+        const revealElements = document.querySelectorAll(".reveal");
+        const handleScroll = () => {
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if(top < window.innerHeight * 0.85) el.classList.add("active");
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("load", handleScroll);
+
+        // Efecto de partículas simples (Tech Dots)
+        const canvas = document.getElementById('particles');
+        // (Aquí podrías insertar una lógica de Canvas para puntos flotantes, 
+        // pero para mantener el código limpio usamos el CSS background-grid)
+        
+        console.log("Sistema de Carrera Cargado: Stanly Rodriguez & Karla Andrade al mando.");
+        
+        // Efecto Navbar
+        window.onscroll = function() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.querySelector(".navbar").style.padding = "10px 0";
+                document.querySelector(".navbar").style.borderBottom = "1px solid #3b82f6";
+            } else {
+                document.querySelector(".navbar").style.padding = "15px 0";
+                document.querySelector(".navbar").style.borderBottom = "1px solid rgba(255,255,255,0.1)";
+            }
+        };
+    </script>
+</body>
+</html>

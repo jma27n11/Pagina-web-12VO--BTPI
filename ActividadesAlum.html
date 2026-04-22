@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Actividades y Convivencia | 12vo BTPI - 2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --rojo-premium: #e11d48;
+            --rojo-glow: rgba(225, 29, 72, 0.5);
+            --azul-electric: #3b82f6;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Estilos Generales --- */
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- Personalización de Barra de Desplazamiento --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--rojo-premium); border-radius: 10px; }
+
+        /* --- Navbar Elevado --- */
+        .navbar {
+            background: rgba(2, 6, 23, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand span { color: var(--rojo-premium); text-shadow: 0 0 15px var(--rojo-glow); }
+
+        .nav-link {
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--rojo-premium);
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after { width: 80%; }
+
+        /* --- Hero Section Dinámico --- */
+        .hero-actividades {
+            padding: 160px 0 100px;
+            background: linear-gradient(to bottom, rgba(225, 29, 72, 0.15), transparent);
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-actividades h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Tarjetas de Actividades (Glassmorphism) --- */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--rojo-premium);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(225, 29, 72, 0.2);
+        }
+
+        .glass-card i {
+            font-size: 2.5rem;
+            color: var(--rojo-premium);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* --- Sección de Convivencia --- */
+        .convivencia-img {
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--glass-border);
+            transition: 0.5s;
+        }
+
+        .convivencia-img:hover {
+            filter: brightness(1.1) contrast(1.1);
+            transform: scale(1.02);
+        }
+
+        /* --- Timeline de Actividades Especiales --- */
+        .timeline-container {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            padding: 30px;
+            border-left: 3px solid var(--rojo-premium);
+            margin-left: 20px;
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            margin-bottom: 20px;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--rojo-premium);
+            border-radius: 50%;
+            left: -9px;
+            top: 35px;
+            box-shadow: 0 0 10px var(--rojo-premium);
+        }
+
+        /* --- Secciones de Texto --- */
+        .section-tag {
+            color: var(--rojo-premium);
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .highlight-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* --- Galería de Fotos --- */
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* --- Footer Estilizado --- */
+        footer {
+            background: #010409;
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 100px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass);
+            border-radius: 50%;
+            color: white;
+            margin: 0 10px;
+            transition: 0.3s;
+            border: 1px solid var(--glass-border);
+        }
+
+        .social-btn:hover {
+            background: var(--rojo-premium);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        /* --- Animaciones de Entrada --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-800 fs-3" href="#">IGP <span>MICHELETTI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small">
+                    <li class="nav-item"><a class="nav-link px-3" href="IndexAlum.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+				   <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="Contactocurso.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-actividades">
+        <div class="container animate__animated animate__fadeIn">
+            <span class="section-tag animate__animated animate__fadeInDown">12VO-BTPI</span>
+            <h1>Actividades <span class="text-white">2026</span></h1>
+            <p class="lead text-secondary mx-auto w-75 animate__animated animate__fadeInUp">
+                En el 12vo Grado de BTP en Informática, la tecnología es nuestro lenguaje, pero la unión es nuestra fuerza. 
+                Aquí te mostramos cómo vivimos el día a día entre códigos, celebraciones y servicio social.
+            </p>
+            <div class="mt-5 animate__animated animate__bounceIn">
+                <a href="#convivencia" class="social-btn" style="width: auto; padding: 0 25px; border-radius: 30px;">
+                    Explorar Vida Estudiantil
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="convivencia" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="display-5 fw-bold text-white mb-3">Convivencia y Compañerismo</h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--rojo-premium);"></div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 reveal">
+                    <div class="glass-card">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <h3 class="text-white mb-3">Celebración de Cumpleaños</h3>
+                        <p class="text-secondary">
+                            En nuestra sección, nadie pasa desapercibido. Cada mes, dedicamos un espacio especial para celebrar a los compañeros que cumplen años. 
+                            <span class="highlight-text">"Un Cumpleaños"</span> no es solo un momento para compartir comida, es el momento donde dejamos de lado la lógica de programación para disfrutar de risas, fotos y fortalecer nuestro lazo como familia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal" style="transition-delay: 0.2s;">
+                    <div class="glass-card">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                        <h3 class="text-white mb-3">Compañerismo Real</h3>
+                        <p class="text-secondary">
+                            Nos preocupamos genuinamente el uno por el otro. Si alguien se queda atrás en un tema de <span class="highlight-text">Redes</span> o tiene problemas personales, siempre hay alguien dispuesto a ayudar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center py-5 reveal">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Convivencia Grupal" class="img-fluid convivencia-img mb-4 mb-lg-0">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <span class="section-tag">EL PODER DEL GRUPO</span>
+                    <h2 class="text-white fw-bold mb-4">Trabajos en Equipo y Presión</h2>
+                    <p class="text-secondary mb-4">
+                        La carrera de informática en el Micheletti es exigente. Hay momentos donde la presión de los proyectos finales y los exámenes de codificación parecen abrumarnos. Sin embargo, es ahí donde nuestra unión brilla más.
+                    </p>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-2"><i class="fa-solid fa-check text-danger me-2"></i> Resolución conjunta de errores de software.</li>
+                        <li class="mb-2"><i class="fa-solid fa-check text-danger me-2"></i> Apoyo moral durante las entregas críticas.</li>
+                        <li class="mb-2"><i class="fa-solid fa-check text-danger me-2"></i> Distribución de tareas según las fortalezas de cada uno.</li>
+                    </ul>
+                    <p class="text-secondary italic">
+                        Incluso con el estrés encima, nunca falta una broma o una palabra de aliento que nos recuerde por qué elegimos este camino juntos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-black bg-opacity-25">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">IMPACTO SOCIAL</span>
+                <h2 class="display-5 fw-bold text-white mb-3">Actividades Especiales</h2>
+                <p class="text-secondary">Llevando el conocimiento del IGP Micheletti más allá del aula.</p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-6 reveal">
+                    <div class="glass-card" style="border-left: 5px solid var(--azul-electric);">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box me-3" style="background: var(--azul-electric);">
+                                <i class="fa-solid fa-toolbox m-0 fs-5"></i>
+                            </div>
+                            <h4 class="m-0 text-white">Mantenimiento a Escuelas/Colegios distintos</h4>
+                        </div>
+                        <p class="text-secondary">
+                            Visitamos escuelas y colegios en <span class="highlight-text">Agua Blanca Sur</span> o incluso en otros lugares para realizar mantenimiento preventivo y correctivo a sus equipos de cómputo. 
+                            Es nuestra forma de retribuir a la comunidad mientras ponemos en práctica nuestras habilidades en hardware. Limpieza interna, cambio de pasta térmica y optimización de sistemas son parte de nuestra rutina.
+                        </p>
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" class="w-100 rounded-4 mt-3 shadow-lg" alt="Hardware Maintenance">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+                    <div class="glass-card" style="border-left: 5px solid var(--rojo-premium);">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box me-3" style="background: var(--rojo-premium);">
+                                <i class="fa-solid fa-chalkboard-user m-0 fs-5"></i>
+                            </div>
+                            <h4 class="m-0 text-white">Clases curriculares sobre tecnología</h4>
+                        </div>
+                        <p class="text-secondary">
+                            No solo arreglamos máquinas, también inspiramos mentes. Los alumnos de 12vo grado impartimos clases a otras instituciones sobre uso responsable de tecnología, uso basico de una PC y a poder aprender las partes de una computadora 
+                            Ver la emoción de un niño al entender cómo funciona una computadora es la mejor recompensa para un estudiante de BTP Informática.
+                        </p>
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" class="w-100 rounded-4 mt-3 shadow-lg" alt="Teaching tech">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 reveal">
+        <div class="container text-center py-5">
+            <div class="glass-card py-5 border-0" style="background: linear-gradient(135deg, rgba(225,29,72,0.1), rgba(59,130,246,0.1));">
+                <h2 class="display-6 fw-bold text-white mb-4 italic">"Más que compañeros, somos una Red Neuronal Humana"</h2>
+                <p class="text-secondary mx-auto w-75 fs-5">
+                    Al final del día, las actividades no son solo eventos en un calendario. Son los ladrillos que construyen nuestro futuro. El <span class="text-white fw-bold">Instituto Roberto Micheletti Bain</span> nos da las herramientas técnicas, pero nosotros, 12VO DE BTPI, le ponemos el corazón a cada línea de código y a cada proyecto social.
+                </p>
+                <div class="mt-4">
+                    <span class="badge bg-danger p-2 px-3 m-1">Unión</span>
+                    <span class="badge bg-primary p-2 px-3 m-1">Tecnología</span>
+                    <span class="badge bg-success p-2 px-3 m-1">Servicio</span>
+                    <span class="badge bg-warning text-dark p-2 px-3 m-1">Futuro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white fw-bold mb-4">IGP ROBERTO MICHELETTI BAIN</h5>
+                    <p class="text-secondary small">
+                        Formando profesionales de excelencia en Agua Blanca Sur. La tecnología es el puente hacia un mejor país.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white fw-bold mb-4">MAPA DEL SITIO</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="footer-link text-secondary text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link text-secondary text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link text-secondary text-decoration-none">Actividades</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link text-secondary text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white fw-bold mb-4">NUESTRA UBICACIÓN</h5>
+                    <p class="text-secondary small">
+                        <i class="fa-solid fa-location-dot me-2 text-danger"></i> 
+                        Calle Principal, Agua Blanca Sur, El Progreso, Yoro, Honduras.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3665/3665923.png" alt="Escudo Colegio" style="width: 100px; filter: grayscale(1) invert(1) brightness(0.8);">
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-5 pt-4 text-center">
+                <p class="text-secondary small mb-0">
+                    &copy; 2026 | BTP en Informática | Diseñado con <i class="fa-solid fa-heart text-danger"></i> por 12vo Grado
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Efecto de Revelación al hacer Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Activación inicial para elementos visibles
+        reveal();
+
+        // Cambio de estilo del Navbar al hacer scroll
+        window.onscroll = function() {
+            var nav = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                nav.style.padding = "0.8rem 0";
+                nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
+            } else {
+                nav.style.padding = "1.2rem 0";
+                nav.style.boxShadow = "none";
+            }
+        };
+    </script>
+</body>
+</html>

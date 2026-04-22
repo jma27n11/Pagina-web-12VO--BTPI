@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Experiencia Profesional y Social | 12vo BTPI</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --accent-red: #e11d48;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --font-main: 'Inter', sans-serif;
+            --font-title: 'Montserrat', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        /* --- Scroll Personalizado --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-red); border-radius: 10px; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e2e8f0;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Animaciones de Fondo --- */
+        .tech-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(225, 29, 72, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(225, 29, 72, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* --- Navbar Futurista --- */
+        .custom-nav {
+            background: rgba(2, 6, 23, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 1.2rem 0;
+        }
+
+        .nav-link {
+            color: #94a3b8 !important;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-red) !important;
+            text-shadow: 0 0 10px rgba(225, 29, 72, 0.5);
+        }
+
+        /* --- Hero Section Detallada --- */
+        .hero-special {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at top right, rgba(225, 29, 72, 0.1), transparent);
+            padding-top: 100px;
+        }
+
+        .badge-btp {
+            background: rgba(225, 29, 72, 0.1);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .main-title {
+            font-family: var(--font-title);
+            font-weight: 900;
+            font-size: 4rem;
+            background: linear-gradient(to bottom, #fff 40%, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Sección Práctica Profesional --- */
+        .practice-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .card-internship {
+            background: var(--glass-white);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 40px;
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-internship:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* --- Sección TES (Social) --- */
+        .tes-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, transparent, rgba(16, 185, 129, 0.03));
+        }
+
+        .tes-box {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+
+        .activity-card {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 30px;
+            border-bottom: 4px solid var(--accent-green);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .activity-card:hover {
+            background: #1e293b;
+        }
+
+        .icon-tes {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.4));
+        }
+
+        /* --- Relevo por la Vida --- */
+        .foundation-mini-card {
+            background: linear-gradient(45deg, #1e1b4b, #312e81);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Footer --- */
+        .footer-cyber {
+            border-top: 1px solid var(--border-glass);
+            padding: 80px 0 40px;
+            margin-top: 100px;
+            background: #010409;
+        }
+
+        /* --- Utils --- */
+        .text-glow-red { text-shadow: 0 0 15px rgba(225, 29, 72, 0.5); }
+        .text-gradient-green { background: linear-gradient(90deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .card-internship { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tech-grid"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fa-solid fa-microchip me-2 text-danger"></i>IGP <span class="text-white-50">BTPI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto">
+                      <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="IndexAlum.html">Inicio</a></li>
+                 <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="RequisitosCarrera.html">Requisitos de Carrera</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="Contactocurso.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-special">
+        <div class="container text-center">
+            <span class="badge-btp animate__animated animate__fadeInDown">CURSO FINAL 2026 - NIVEL TÉCNICO</span>
+            <h1 class="main-title animate__animated animate__fadeInUp">MÁS ALLÁ DE LAS <br><span class="text-glow-red" style="-webkit-text-fill-color: var(--accent-red);">AULAS</span></h1>
+            <p class="mt-4 text-secondary mx-auto" style="max-width: 700px;">
+                Como alumnos de 12vo grado del Instituto Roberto Micheletti Bain, nuestra formación no termina en un libro. Se consolida en el mundo laboral y en el servicio a nuestra comunidad de Agua Blanca Sur.
+            </p>
+            <div class="mt-5 d-flex justify-content-center gap-3">
+                <a href="#practica" class="btn btn-danger px-4 py-2 rounded-0 shadow-lg">PRÁCTICA PROFESIONAL</a>
+                <a href="#tes" class="btn btn-outline-light px-4 py-2 rounded-0">TRABAJO SOCIAL</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="practica" class="practice-section">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title fw-bold text-white mb-4" style="font-size: 2.5rem;">
+                        LA PRÁCTICA <span class="text-primary">PROFESIONAL</span>
+                    </h2>
+                    <p class="text-secondary lead">
+                        Es el puente definitivo entre el estudiante y el experto. Durante 800 horas de inmersión total, los alumnos de 12vo BTPI somos integrados en empresas reales para resolver problemas críticos de infraestructura tecnológica.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-internship">
+                        <h5 class="text-white mb-4"><i class="fa-solid fa-code-merge me-2 text-primary"></i>¿Qué nos permiten hacer?</h5>
+                        <p class="small text-secondary">Las instituciones y empresas aliadas nos brindan la confianza para manipular equipos de alto valor y gestionar redes corporativas, permitiéndonos aplicar:</p>
+                        <div class="mt-3">
+                            <span class="skill-tag">Mantenimiento de Servidores</span>
+                            <span class="skill-tag">Cableado Estructurado</span>
+                            <span class="skill-tag">Administración de SQL</span>
+                            <span class="skill-tag">Soporte Nivel 1 y 2</span>
+                            <span class="skill-tag">Seguridad de Datos</span>
+                            <span class="skill-tag">Optimización de OS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="card-internship text-center h-100">
+                        <i class="fa-solid fa-bolt-lightning text-primary mb-3" style="font-size: 2rem;"></i>
+                        <h4 class="text-white">Velocidad y Destreza</h4>
+                        <p class="small text-secondary">Pasamos de la teoría a la acción. En el campo, un error puede detener una empresa, por lo que perfeccionamos la rapidez de respuesta y la precisión técnica.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-internship text-center h-100" style="border-color: rgba(255,255,255,0.2);">
+                        <i class="fa-solid fa-users-gear text-primary mb-3" style="font-size: 2rem;"></i>
+                        <h4 class="text-white">Ética de Trabajo</h4>
+                        <p class="small text-secondary">La puntualidad, el uso del uniforme profesional y el respeto a las jerarquías empresariales son pilares que moldean nuestro carácter profesional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-internship text-center h-100">
+                        <i class="fa-solid fa-chart-line text-primary mb-3" style="font-size: 2rem;"></i>
+                        <h4 class="text-white">Crecimiento Real</h4>
+                        <p class="small text-secondary">Muchos de nuestros compañeros terminan su práctica con ofertas de empleo reales, demostrando que el IGP prepara mano de obra calificada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tes" class="tes-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-900 text-white" style="font-size: 3rem;">TRABAJO EDUCATIVO <span class="text-gradient-green">SOCIAL</span></h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent-green); margin-top: 10px;"></div>
+                <p class="text-secondary mt-4 mx-auto" style="max-width: 800px;">
+                    El TES no es solo un requisito de graduación; es nuestra forma de devolverle a Agua Blanca Sur un poco de lo que nos ha dado. Dejamos las computadoras por un momento para ponernos los guantes y trabajar por el medio ambiente.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="tes-box">
+                        <h3 class="text-white mb-4">Acción Ambiental: <span class="text-secondary fw-light">Cuidado del Entorno</span></h3>
+                        <p class="text-secondary">
+                            Nuestra labor principal se concentra en la recuperación de espacios públicos. No solo se trata de limpiar, sino de concientizar sobre el impacto de nuestros desechos en la comunidad.
+                        </p>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-6 mb-4">
+                                <div class="activity-card">
+                                    <i class="fa-solid fa-trash-can icon-tes"></i>
+                                    <h5>Recolección de Desechos</h5>
+                                    <p class="small text-secondary">Recorremos las calles principales y zonas escolares recolectando plásticos y desechos sólidos que afectan el ecosistema local.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="activity-card">
+                                    <i class="fa-solid fa-mound icon-tes"></i>
+                                    <h5>Aseo del Campo de Fútbol</h5>
+                                    <p class="small text-secondary">Realizamos jornadas intensas de limpieza y mantenimiento en el campo de fútbol, asegurando un espacio digno para el deporte juvenil.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="activity-card" style="border-bottom-color: #fbbf24;">
+                                    <i class="fa-solid fa-hand-holding-heart icon-tes" style="color: #fbbf24;"></i>
+                                    <h5>Gestión de Actividades</h5>
+                                    <p class="small text-secondary">Organizamos ventas, rifas y eventos para recaudar fondos destinados a proyectos de mejora del instituto o causas benéficas de la zona.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="sticky-top" style="top: 100px;">
+                        <div class="card-internship" style="border-color: rgba(16, 185, 129, 0.3);">
+                            <h4 class="text-white mb-4">Impacto Social</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-4 d-flex align-items-start">
+                                    <i class="fa-solid fa-circle-check text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="text-white mb-1">+100 Horas de Servicio</h6>
+                                        <p class="small text-muted">Dedicadas por cada alumno a mejorar la infraestructura y limpieza local.</p>
+                                    </div>
+                                </li>
+                                <li class="mb-4 d-flex align-items-start">
+                                    <i class="fa-solid fa-circle-check text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="text-white mb-1">Conciencia Ecológica</h6>
+                                        <p class="small text-muted">Reducción directa de contaminación en las áreas aledañas al Instituto Roberto Micheletti.</p>
+                                    </div>
+                                </li>
+                                <li class="mb-4 d-flex align-items-start">
+                                    <i class="fa-solid fa-circle-check text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="text-white mb-1">Trabajo en Equipo</h6>
+                                        <p class="small text-muted">Fortalecemos la unión del curso 12vo BTPI fuera de los laboratorios de cómputo.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="foundation-mini-card">
+                                <div class="me-3">
+                                    <i class="fa-solid fa-ribbon text-warning" style="font-size: 2rem;"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white mb-0">Relevo por la Vida</h6>
+                                    <p class="mb-0" style="font-size: 0.7rem; color: #a5b4fc;">Apoyamos activamente a esta fundación en la lucha contra el cáncer mediante actividades de recaudación.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-cyber">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-900 mb-4">IGP <span class="text-danger">MICHELETTI</span></h4>
+                    <p class="text-secondary small">
+                        Líderes en formación técnica profesional en el departamento de Yoro. El BTP en Informática se destaca por su excelencia académica y su compromiso con la innovación constante en el año 2026.
+                    </p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-secondary fs-5"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="text-white mb-4">NAVEGACIÓN</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-red">Inicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-red">Proyectos IA</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-red">Galería TES</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-red">Práctica</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="text-white mb-4">RECURSOS TÉCNICOS</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2 text-secondary">Manual de Práctica 2026</li>
+                        <li class="mb-2 text-secondary">Lineamientos del TES</li>
+                        <li class="mb-2 text-secondary">Reglamento Interno BTPI</li>
+                        <li class="mb-2 text-secondary">Proyectos de Graduación</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 text-md-end">
+                    <h6 class="text-white mb-4">UBICACIÓN</h6>
+                    <p class="text-secondary small">
+                        Aldea Agua Blanca Sur<br>
+                        El Progreso, Yoro, Honduras<br><br>
+                        <strong>Contacto:</strong> +504 XXXX-XXXX<br>
+                        <strong>Email:</strong> info@igpmicheletti.edu
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top border-secondary">
+                <p class="small text-muted mb-0">
+                    &copy; 2026 | Desarrollado por la Promoción de 12vo BTPI | <span class="text-danger">Innovación y Futuro</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

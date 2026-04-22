@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admisiones Carreras 2026 | IGP Roberto Micheletti Bain</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        /* SISTEMA DE DISEÑO - ADMISIONES DE CARRERA 2026 
+           Enfoque: Profesionalismo Técnico y Estética Futurista.
+        */
+        :root {
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --rojo-premium: #e11d48;
+            --azul-electric: #3b82f6;
+            --oro-focus: #f59e0b;
+            --cyan-tech: #06b6d4;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --glow-blue: 0 0 20px rgba(59, 130, 246, 0.4);
+            --glow-red: 0 0 20px rgba(225, 29, 72, 0.4);
+        }
+
+        /* --- Estilos Base --- */
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 5% 10%, rgba(225, 29, 72, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 95% 90%, rgba(59, 130, 246, 0.15) 0%, transparent 35%),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-weight: 800;
+        }
+
+        .mono { font-family: 'Fira Code', monospace; }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(var(--rojo-premium), var(--azul-electric)); 
+            border-radius: 5px; 
+        }
+
+        /* --- Navegación --- */
+        .navbar {
+            background: rgba(2, 6, 23, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 18px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar-brand { font-size: 1.5rem; }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover { color: var(--azul-electric) !important; text-shadow: var(--glow-blue); }
+
+        .btn-postular {
+            background: linear-gradient(45deg, var(--rojo-premium), #9f1239);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 800;
+            box-shadow: var(--glow-red);
+            transition: var(--transition-smooth);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .btn-postular:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.6);
+            color: white;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0;
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070') no-repeat center center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(2, 6, 23, 0.95) 30%, rgba(2, 6, 23, 0.7));
+        }
+
+        .hero-content { position: relative; z-index: 5; text-align: left; }
+
+        .badge-career {
+            background: var(--azul-electric);
+            color: white;
+            padding: 6px 15px;
+            font-size: 0.8rem;
+            font-weight: 900;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* --- Secciones y Títulos --- */
+        .section-padding { padding: 100px 0; }
+
+        .title-wrapper { margin-bottom: 60px; }
+
+        .section-title {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 80px; height: 5px;
+            background: var(--rojo-premium);
+        }
+
+        /* --- Tarjetas de Carrera --- */
+        .career-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 0;
+            padding: 40px;
+            transition: var(--transition-smooth);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--azul-electric));
+            transition: 0.6s;
+        }
+
+        .career-card:hover::before { left: 100%; }
+
+        .career-card:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: var(--azul-electric);
+            transform: translateY(-10px);
+            box-shadow: var(--glow-blue);
+        }
+
+        .career-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(var(--azul-electric), var(--cyan-tech));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Requisitos de Carrera (Enfoque de Matrícula) --- */
+        .req-box {
+            background: rgba(15, 23, 42, 0.5);
+            border-left: 4px solid var(--rojo-premium);
+            padding: 30px;
+            height: 100%;
+            transition: var(--transition-smooth);
+        }
+
+        .req-box:hover {
+            background: rgba(15, 23, 42, 0.8);
+            border-left-color: var(--oro-focus);
+        }
+
+        .req-list { list-style: none; padding: 0; }
+
+        .req-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+        }
+
+        .req-list li i {
+            color: var(--oro-focus);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .req-step {
+            width: 35px;
+            height: 35px;
+            background: var(--rojo-premium);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        /* --- Timeline del Proceso --- */
+        .process-line {
+            position: relative;
+            padding-left: 30px;
+            border-left: 1px dashed var(--azul-electric);
+        }
+
+        .process-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .process-item::before {
+            content: '';
+            position: absolute;
+            left: -36px; top: 0;
+            width: 11px; height: 11px;
+            background: var(--azul-electric);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--azul-electric);
+        }
+
+        /* --- FAQ Section --- */
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            margin-bottom: 15px;
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--azul-electric);
+            box-shadow: none;
+        }
+
+        .accordion-button::after { filter: invert(1); }
+
+        .accordion-body { color: var(--text-dim); background: rgba(0,0,0,0.2); }
+
+        /* --- Perfil de Egreso --- */
+        .profile-card {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.1), rgba(59, 130, 246, 0.1));
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #01040a;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; }
+
+        /* --- Utility --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.8rem; }
+            .hero-section { text-align: center; }
+            .btn-postular { clip-path: none; border-radius: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand brand-font" href="#">
+                IGP <span style="color: var(--rojo-premium)">MICHELETTI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+               <ul class="navbar-nav ms-auto text-uppercase small">
+				     <li class="nav-item"><a class="nav-link px-3" href="IndexAlum.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="Sobrenosotros.html">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link px-3" href="ActividadesAlum.html">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-white" href="Informatica.html">BTPI</a></li>
+				   <li class="nav-item"><a class="nav-link px-3" href="PracticayTES.html"> Practica / TES</a></li>
+				   <li class="nav-item"><a class="nav-link px-3" href="Clasescurso.html">Clases</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-danger btn-sm rounded-pill px-4" href="Contactocurso.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-4">
+				   
+                       
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content animate__animated animate__fadeInLeft">
+                    <div class="badge-career">Admisiones 2026 - Educación Técnica</div>
+                    <h1 class="display-3 mb-4">
+                        FORMA PARTE DE LA <br>
+                        <span style="color: var(--azul-electric); text-shadow: var(--glow-blue);">CARRERA</span>
+                    </h1>
+                    <p class="fs-5 text-secondary mb-5" style="max-width: 600px;">
+                        No solo te matriculas en un grado, te integras a una carrera diseñada para las exigencias del mercado laboral moderno en <strong>Agua Blanca Sur</strong>.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#requisitos" class="btn btn-primary btn-lg px-5 rounded-0" style="background: var(--azul-electric); border:none; font-weight:700;">REQUISITOS POR CARRERA</a>
+                        <a href="#proceso" class="btn btn-outline-light btn-lg px-5 rounded-0" style="font-weight:700;">PASOS DE ADMISIÓN</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block animate__animated animate__zoomIn">
+                    <div class="p-4 border border-primary bg-primary bg-opacity-10" style="backdrop-filter: blur(10px);">
+                        <h5 class="mono text-primary mb-3"># Terminal de Admisiones_</h5>
+                        <p class="small text-secondary mono mb-0">
+                         
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding bg-black bg-opacity-30">
+        <div class="container">
+            <div class="title-wrapper text-center reveal">
+                <h2 class="section-title">Especialidades <span style="color: var(--azul-electric)">Técnicas</span></h2>
+                <p class="text-dim">Selecciona tu camino hacia la profesionalización.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 reveal">
+                    <div class="career-card">
+                        <div class="career-icon"><i class="fas fa-code-branch"></i></div>
+                        <h3>BTP en Informática</h3>
+                        <p class="text-dim small mb-4">Especialización en desarrollo de sistemas, gestión de redes y soporte avanzado. Ideal para mentes lógicas y creativas.</p>
+                        <ul class="list-unstyled small text-secondary">
+                            <li><i class="fas fa-check text-primary me-2"></i>Laboratorios de Última Generación</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Certificación Técnica</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal" style="transition-delay: 0.2s;">
+                    <div class="career-card">
+                        <div class="career-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Contaduría y Finanzas</h3>
+                        <p class="text-dim small mb-4">Formación en gestión fiscal, auditoría y finanzas corporativas. El motor administrativo de las empresas.</p>
+                        <ul class="list-unstyled small text-secondary">
+                            <li><i class="fas fa-check text-primary me-2"></i>Práctica Profesional Garantizada</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Software Avanzado</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal" style="transition-delay: 0.4s;">
+                    <div class="career-card">
+                        <div class="career-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Ciencias y Humanidades</h3>
+                        <p class="text-dim small mb-4">Preparación de alto rendimiento para el acceso a la universidad. Enfoque científico y humanista integral.</p>
+                        <ul class="list-unstyled small text-secondary">
+                            <li><i class="fas fa-check text-primary me-2"></i>Orientación Vocacional</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Base Académica Sólida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="requisitos" class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5 reveal">
+                    <h2 class="section-title mb-4">Expediente de <span style="color: var(--oro-focus)">Carrera</span></h2>
+                    <p class="text-secondary mb-5">Para ingresar a nuestras carreras técnicas, el postulante debe cumplir con el rigor documental y académico establecido para el año 2026.</p>
+                    
+                    <div class="req-box mb-4">
+                        <h5 class="text-white"><i class="fas fa-folder-open me-2 text-primary"></i> Documentación General</h5>
+                        <ul class="req-list">
+                            <li><i class="fas fa-caret-right"></i> Certificación de Acta de Nacimiento Original.</li>
+                            <li><i class="fas fa-caret-right"></i> Certificado de Estudios del Ciclo Común (7mo, 8vo, 9no).</li>
+                            <li><i class="fas fa-caret-right"></i> Constancia de Buena Conducta (Institución de origen).</li>
+                            <li><i class="fas fa-caret-right"></i> 2 Fotografías tamaño carnet con uniforme de carrera o formal.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 reveal" style="transition-delay: 0.2s;">
+                    <div class="p-5" style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);">
+                        <h4 class="text-white mb-4">Requisitos Específicos para el <span class="text-primary">BTP</span></h4>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-3 border border-secondary">
+                                    <div class="req-step">01</div>
+                                    <h6>Entrevista Técnica</h6>
+                                    <p class="small text-dim">Conversatorio con el Coordinador de Carrera para evaluar el perfil e intereses del estudiante.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border border-secondary">
+                                    <div class="req-step">02</div>
+                                    <h6>Examen de Admisión</h6>
+                                    <p class="small text-dim">Evaluación de conocimientos básicos en lógica, matemáticas y comprensión lectora.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border border-secondary">
+                                    <div class="req-step">03</div>
+                                    <h6>Aprobacion del padre de gastos económicos</h6>
+                                    <p class="small text-dim">Para carreras técnicas que requieren uso de taller o laboratorios físicos.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border border-secondary">
+                                    <div class="req-step">04</div>
+                                    <h6>Compromiso de Responsabilidad</h6>
+                                    <p class="small text-dim">Compromiso por parte del alumno para hacerse responsable de accidentes futuros en los trabajos asignados. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 p-3 bg-warning bg-opacity-10 border border-warning">
+                            <p class="small text-warning mb-0">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Nota:</strong> Los estudiantes que provienen de centros educativos distintos deben presentar certificado de autenticidad de sus notas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" class="section-padding bg-black bg-opacity-20">
+        <div class="container">
+            <div class="title-wrapper text-center reveal">
+                <h2 class="section-title">Protocolo de <span style="color: var(--azul-electric)">Admisión</span></h2>
+                <p class="text-dim">Ruta crítica para asegurar tu cupo en la carrera seleccionada.</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="process-line">
+                        <div class="process-item">
+                            <h5 class="text-white">Fase 1: Pre-Registro Online o Presencial</h5>
+                            <p class="text-dim">Solicitud de cupo en Secretaría y entrega de hoja de datos personales del encargado y alumno.</p>
+                        </div>
+                        <div class="process-item">
+                            <h5 class="text-white">Fase 2: Aplicación de Evaluaciones</h5>
+                            <p class="text-dim">El aspirante a BTP debe someterse a la prueba diagnóstica de aptitud (Ver Calendario).</p>
+                        </div>
+                        <div class="process-item">
+                            <h5 class="text-white">Fase 3: Cotejo Documental</h5>
+                            <p class="text-dim">Entrega física de los certificados originales y firmas de compromiso en Secretaría.</p>
+                        </div>
+                        <div class="process-item">
+                            <h5 class="text-white">Fase 4: Alta en el Sistema (SACE)</h5>
+                            <p class="text-dim">Una vez aprobada la documentación, se procede al registro oficial ante la Secretaría de Educación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="profile-card reveal">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">¿Qué lograrás al <span style="color: var(--rojo-premium)">Graduarte?</span></h2>
+                        <p class="text-secondary">Nuestra metodología de carrera garantiza que el egresado del <strong>IGP Roberto Micheletti</strong> no solo posea un título, sino competencias reales:</p>
+                        <ul class="list-unstyled mt-4">
+                            <li class="mb-3"><i class="fas fa-shield-halved text-primary me-3"></i> Ética Profesional y Responsabilidad Civil.</li>
+                            <li class="mb-3"><i class="fas fa-laptop-code text-primary me-3"></i> Dominio de herramientas tecnológicas de vanguardia.</li>
+                            <li class="mb-3"><i class="fas fa-briefcase text-primary me-3"></i> Experiencia práctica en entornos laborales reales.</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070" alt="Estudiantes" class="img-fluid rounded-4 shadow-lg border border-secondary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding bg-black bg-opacity-30">
+        <div class="container">
+            <div class="title-wrapper text-center reveal">
+                <h2 class="section-title">Preguntas <span style="color: var(--oro-focus)">Frecuentes</span></h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 reveal">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    ¿Puedo matricularme si no tengo el certificado original todavía?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Se permite una matrícula condicionada mediante una constancia de estudios en trámite, con un plazo máximo de 30 días para entregar el original.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    ¿Hay becas disponibles para las carreras técnicas?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, el Instituto cuenta con un programa de becas por excelencia académica y apoyo social. Los requisitos se solicitan directamente en la Dirección.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    ¿Cuáles son los horarios de las carreras?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Contamos con jornada matutina y vespertina. La asignación depende de la disponibilidad de cupos y el orden de matrícula.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="footer-logo text-white brand-font mb-4">IGP <span class="text-primary">MICHELETTI</span></h3>
+                    <p class="text-dim small">Centro de formación técnica líder en la zona norte, comprometidos con la excelencia académica y el desarrollo tecnológico de nuestros estudiantes desde Agua Blanca Sur.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-4">CARRERAS</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Informática</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Finanzas</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Humanidades</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Ciclo Básico</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-4">ADMISIONES</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Requisitos 2026</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Examen de Admisión</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Calendario Oficial</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dim">Costos y Aranceles</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-4">CONTACTO</h6>
+                    <p class="text-dim small mb-2"><i class="fas fa-map-marker-alt me-2"></i> Agua Blanca Sur, El Progreso, Yoro</p>
+                    <p class="text-dim small mb-2"><i class="fas fa-phone me-2"></i> +504 26xx-xxxx</p>
+                    <p class="text-dim small"><i class="fas fa-envelope me-2"></i> info@igpmicheletti.edu.hn</p>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-dim mb-0">&copy; 2026 Instituto Roberto Micheletti Bain. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-dim mb-0 mono">Desarrollado para el Éxito Estudiantil_</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll Reveal Logic
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.9;
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if(top < triggerBottom) el.classList.add("active");
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+
+        // Navbar Shadow effect
+        window.addEventListener("scroll", () => {
+            const nav = document.querySelector(".navbar");
+            if(window.scrollY > 100) {
+                nav.style.background = "rgba(2, 6, 23, 0.98) !important";
+                nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
+                nav.style.padding = "12px 0";
+            } else {
+                nav.style.background = "rgba(2, 6, 23, 0.9) !important";
+                nav.style.boxShadow = "none";
+                nav.style.padding = "18px 0";
+            }
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
